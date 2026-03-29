@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.function.ConditionalLootFunction;
 import net.minecraft.loot.function.LootFunction;
 import net.minecraft.loot.function.LootFunctionType;
 
@@ -18,7 +19,7 @@ import java.util.List;
  * <p>The function has no configuration parameters, so its {@link MapCodec}
  * is a unit codec that always decodes to the same instance.</p>
  */
-public class GungnirNormalizeLootFunction extends LootFunction {
+public class GungnirNormalizeLootFunction extends ConditionalLootFunction {
 
     /** Singleton instance – the function has no state beyond its (empty) condition list. */
     static final GungnirNormalizeLootFunction INSTANCE =
@@ -55,7 +56,7 @@ public class GungnirNormalizeLootFunction extends LootFunction {
         return new Builder();
     }
 
-    public static class Builder extends LootFunction.Builder<Builder> {
+    public static class Builder extends ConditionalLootFunction.Builder<Builder> {
 
         @Override
         protected Builder getThisBuilder() {

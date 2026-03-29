@@ -167,13 +167,13 @@ public final class GungnirNormalizationHandler {
 
         // Apply clean enchantments using the component API.
         RegistryEntryLookup<Enchantment> enchLookup =
-                registryLookup.getOrThrow(RegistryKeys.ENCHANTMENT);
-        ItemEnchantmentsComponent.Mutable mutable =
-                new ItemEnchantmentsComponent.Mutable(ItemEnchantmentsComponent.DEFAULT);
-        mutable.set(enchLookup.getOrThrow(Enchantments.IMPALING), 5);
-        mutable.set(enchLookup.getOrThrow(Enchantments.UNBREAKING), 3);
-        mutable.set(enchLookup.getOrThrow(Enchantments.MENDING), 1);
-        stack.set(DataComponentTypes.ENCHANTMENTS, mutable.toImmutable());
+                registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        ItemEnchantmentsComponent.Builder builder =
+                new ItemEnchantmentsComponent.Builder(ItemEnchantmentsComponent.DEFAULT);
+        builder.add(enchLookup.getOrThrow(Enchantments.IMPALING), 5);
+        builder.add(enchLookup.getOrThrow(Enchantments.UNBREAKING), 3);
+        builder.add(enchLookup.getOrThrow(Enchantments.MENDING), 1);
+        stack.set(DataComponentTypes.ENCHANTMENTS, builder.build());
 
         return stack;
     }
