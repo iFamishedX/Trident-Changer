@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "trident-changer",
+  "version": "${version}",
+  "name": "Trident Changer",
+  "description": "Server-side hotfix mod that normalizes Gungnir-type tridents in player inventories.",
+  "authors": [
+    "iFamishedX"
+  ],
+  "contact": {
+    "sources": "https://github.com/iFamishedX/Trident-Changer"
+  },
+  "license": "MIT",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "com.ifamishedx.tridentchanger.TridentChangerMod"
+    ]
+  },
+  "mixins": [
+    "trident-changer.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21",
+    "java": ">=21"
+  }
+}

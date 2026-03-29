@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.ifamishedx.tridentchanger.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "PlayerInventoryMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
